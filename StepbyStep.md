@@ -83,3 +83,63 @@ File -> Export Objects -> choose one from the available options
 Click Bottom left on Wireshark to show properties of the pcap file.  
 Find Strings with CTRL+F  
 
+**Steganography**  
+TOOLS  
+SNOW - For hiding and extracting hidden data from a text file  
+Openstego - For hiding and extracting hidden data from an image file  
+Covert TCP - For hiding data in TCP/IP packet headers  
+
+SNOW  
+Hide a file  
+windows cmd : SNOW.EXE -C -m "You can clear the CEH Exam 9090' —p "pa$$word" Secret.txt Hiddensecret.txt  
+HINT: When we press CTRL+A (choose all) using a text editor is possible to see spaces and new lines that are more than the actuall text.  
+windows cmd : SNOW.EXE —C —p "pa$$word" Hiddensecret.txt (output will be the secret message)  
+
+Openstego  
+Openstego is a gui app to hide or extract files inside an image.  
+Hint: extract process can produce file that maybe has a hashed value  
+
+Covert TCP  
+www-scf.usc.edu/~csa5301/downloads/covert_tcp.c (download save as "covert-tcp.c" and run)  
+cc -o covert_tcp covert_tcp.c  
+For receiving/listening: ./covert_tcp -dest <Dest-lP> -source <Source-lP> -source_port 9999 -dest_port 8888 -server -file /path/to/file.txt  
+For sending: ./covert_tcp -dest <Dest-lP> -source <Source-lP> -source_port 8888 -dest_port 9999 -file /path/to/file.txt  
+
+**Cryptography**  
+Tools  
+Hashmyfiles- For calculating and comparing hashes of files  
+Cryptool - For encryption/decryption of the hex data - by manipulating the key length (https://www.youtube.com/watch?v=wywTyONpbMc&t=370s)    
+BcTextEncoder- For encoding and decoding text in file (.hex)  
+CryptoForge - For encrypting and decrypting the files  
+VeraCrypt - For hiding and Encrypting the disk partitions  
+
+**Hacking Web & Android**  
+SQLMap - For finding SQL Injection Vulnerabilities  
+Wpscan - Scanning and Finding issues in wordpress websites  
+ADB For connecting Android devices to PC and binary analysis  
+Burpsuite - For analysing and manipulating the traffic  
+
+SQLMAP    
+
+Using SQLMAP with BurpSuite. Right Click on request and save it as an item (when webapp is using Cookies etc.)  
+$sqlmap -r req.txt --dbs (req.txt is the saved file from BurpSuite)  
+$sqlmap -r req.txt -D DVWA --table (DVWA the name of the database, --table will give us names of tables)  
+$sqlmap -r req. txt -D dvwa --dump 
+
+WPSCAN  
+
+$wpscan --url http://10.10.14.187/ --enumerate u  
+
+ADB Tool (Android Debug Bridge)  
+ADB suppose to be installed in a Windows machine using Power Shell  
+C:\users\example-user>adb devices  
+-output example-  
+List Of devices attached  
+192.168.0.100:5555  device  
+C:\users\example-user>adb connect 192.168.0.100:5555  
+-output example-  
+already connected to 192.168. O. 100: 5555  
+C:\users\example-user>adb shell  
+device123#@:/ $ whoami (shows shell for permissions)  
+device123#@:/ $ cd sdcard (navigate to sdcard)  
+device123#@:/ $ ls (try to find the secret)
