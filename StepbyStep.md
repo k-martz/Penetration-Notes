@@ -68,7 +68,18 @@ Network Basic Input Output System
 Facilitates and allows computer to connect over the local network, access shared
 resources, such as files and printers, and to find each other.  
 
+
 nmap -sV --script nbstat.nse 192.72.120.3  
 
+**Wireshark > Pcap File Analysis**  
 
+using filters in Wireshark : 
+tcp.flags.syn==1  
+click on a packet right click on it follow -> TCP Stream OR HTTP Stream (in the new window click on the right bottom to change Stream)  
+
+Extract files with Wireshark :  
+File -> Export Objects -> choose one from the available options  
+
+Click Bottom left on Wireshark to show properties of the pcap file.  
+Find Strings with CTRL+F  
 
